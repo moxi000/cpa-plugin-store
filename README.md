@@ -27,17 +27,17 @@ plugins:
 
 ## 加入新插件
 
-在 `registry.json` 的 `plugins` 数组里追加一条。`repository` 必须是 `https://github.com/所有者/仓库`。安装时 CLIProxyAPI 会读取该仓库的最新 Release。
+清单格式与 [插件商店发布格式](https://help.router-for.me/cn/plugin/development.html#%E6%8F%92%E4%BB%B6%E5%95%86%E5%BA%97%E5%8F%91%E5%B8%83%E6%A0%BC%E5%BC%8F) 一致。`schema_version` 必须是 `1`。每条插件的 `id`、`name`、`description`、`author`、`repository` 必填，`repository` 必须是 `https://github.com/{owner}/{repo}`。`version` 只是展示兜底；实际安装版本来自该仓库最新 Release 的 tag，tag 可以带前导 `v`。
 
-Release 需要包含当前平台的压缩包和 `checksums.txt`：
+在 `plugins` 数组里追加一条后，到插件仓库发布 Release。资产名称：
 
 ```text
-<插件ID>_<版本>_<系统>_<架构>.zip
+<pluginID>_<version>_<goos>_<goarch>.zip
 checksums.txt
 ```
 
-压缩包根目录直接放动态库，例如 `my-plugin.so`，不要放进子目录。`checksums.txt` 使用 sha256：
+压缩包根目录必须直接包含动态库，例如 `my-plugin.so`，不能放在子目录里。`checksums.txt` 为 sha256：
 
 ```text
-<sha256>  my-plugin_1.0.0_linux_amd64.zip
+<sha256>  my-plugin_1.0.1_linux_amd64.zip
 ```
