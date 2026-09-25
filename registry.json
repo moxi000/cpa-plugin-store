@@ -6,7 +6,7 @@
       "name": "模型目录覆写",
       "description": "在 CLIProxyAPI 下发 Codex 模型目录前，按字段覆写、追加或移除模型。上游目录更新后，没有改过的字段继续跟随。",
       "author": "moxi000",
-      "version": "1.0.1",
+      "version": "1.0.4",
       "repository": "https://github.com/moxi000/models-cache-override",
       "logo": "https://github.com/moxi000.png",
       "homepage": "https://github.com/moxi000/models-cache-override",
